@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Orbitron:wght@500&family=Quicksand:wght@300&family=Roboto:wght@300&family=Tilt+Neon&display=swap" rel="stylesheet">
+    <script src="index.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>To do List App</title>
+</head>
+<body>
+    
+    <div class="p-0 m-0">
+        <div class="header p-5 text-3xl flex w-full shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>              
+            <h1 class="items-center w-full text-center">To do List App</h1>
+            <svg id="add-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="modal-trigger w-10 h-10 cursor-pointer">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+              </svg>
+        </div>
+        <container class="p-5 px-0 grid grid-rows-1">
+            <div class="h-fit" id="element-container">
+                <!-- To do element -->
+                <div id="element" class="">
+                    <input type="checkbox" id="to-do" name="to-do" class="w-5 cursor-pointer">
+                    <div class="flex flex-col mx-auto text-lg items-center">
+                        <label for="to-do" class="">To do :</label>
+                        <div class="">Details</div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="" id="delete-button" class="w-8 h-8 cursor-pointer my-auto">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                      </svg>     
+                </div>
+            </div>
+        </container>
+        
+        <div id="form-container" class="flex w-full h-full justify-center items-center top-0 left-0">
+            <div id="overlay"></div>
+            <div id="modal" class="">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class=" modal-trigger flex w-6 h-6 cursor-pointer" id="close">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  
+                <form action="" class="flex flex-col">
+                    <input type="text" name="to-do" id="to-do" placeholder="To do" required>
+                    <input type="text" name="details" id="details" placeholder="Details" >
+                    <input id="submit" type="submit" value="Add" class="cursor-pointer">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

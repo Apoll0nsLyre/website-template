@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh;
+    background: white;
+    color: black;
+}
+#element{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(224, 224, 224), white);
+    padding: 1.25rem;
+}
+
+#delete-button{
+    fill: rgb(252, 65, 65);
+    transition: all 0.3s ease-in-out;
+}
+#delete-button:hover{
+    fill: rgb(0, 0, 0);
+    transition: all 0.3s ease-in-out;
+    rotate: 360deg;
+}
+#add-button{
+    fill: rgb(224, 224, 224);
+    transition: all 0.3s ease-in-out;
+}
+#add-button:hover{
+    fill: rgb(92, 92, 92);
+    transition: all 0.3s ease-in-out;
+    rotate: 180deg;
+}
+#form-container{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    transition: all 0.5s ease-in-out;
+}
+#overlay{
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+
+#modal{
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+form input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    font-size: 1.2rem;
+    font-family: 'Quicksand', sans-serif;
+}
+#submit{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.2rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+#close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(252, 65, 65);
+    border-radius: 20%;
+}
+
+/* active */
+
+#form-container.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+#form-container.active #overlay{
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+#form-container.active #modal{
+    opacity: 1;
+
+}
