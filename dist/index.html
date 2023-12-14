@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Orbitron:wght@500&family=Quicksand:wght@300&family=Roboto:wght@300&family=Tilt+Neon&display=swap" rel="stylesheet">
-    <script src="index.js" defer></script>
+    <script src="../src/index.js" defer></script>
+    <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>To do List App</title>
 </head>
@@ -27,19 +28,32 @@
         <container class="p-5 px-0 grid grid-rows-1">
             <div class="h-fit" id="element-container">
                 <!-- To do element -->
-                <div id="element" class="">
+                <!-- <div id="element" class="">
                     <input type="checkbox" id="to-do" name="to-do" class="w-5 cursor-pointer">
                     <div class="flex flex-col mx-auto text-lg items-center">
-                        <label for="to-do" class="">To do :</label>
+                        <label for="to-do" class="Title">Title</label>
                         <div class="">Details</div>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="" id="delete-button" class="w-8 h-8 cursor-pointer my-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="" id="delete-button" class="delete-trigger w-8 h-8 cursor-pointer my-auto">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
                       </svg>     
-                </div>
+                </div> -->
             </div>
         </container>
         
+        <div class="delete-container">
+            <div id="overlay"></div>
+            <div id="delete-block">
+                <div class="flex flex-col justify-center items-center">
+                    <h1 class="text-2xl">Are you sure you want to delete this task?</h1>
+                    <div class="flex justify-center items-center">
+                        <button id="delete" class="delete-trigger w-20 h-10 m-5 bg-red-500 rounded-lg text-white">Delete</button>
+                        <button id="cancel" class="delete-trigger w-20 h-10 m-5 bg-green-500 rounded-lg text-white">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="form-container" class="flex w-full h-full justify-center items-center top-0 left-0">
             <div id="overlay"></div>
             <div id="modal" class="">
@@ -47,8 +61,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                   
-                <form action="" class="flex flex-col">
-                    <input type="text" name="to-do" id="to-do" placeholder="To do" required>
+                <form id="task-form" action="" class="flex flex-col">
+                    <input type="text" name="to-do" id="toDo" placeholder="To do" required>
                     <input type="text" name="details" id="details" placeholder="Details" >
                     <input id="submit" type="submit" value="Add" class="cursor-pointer">
                 </form>
