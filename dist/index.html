@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Orbitron:wght@500&family=Quicksand:wght@300&family=Roboto:wght@300&family=Tilt+Neon&display=swap" rel="stylesheet">
-    <script src="../src/index.js" defer></script>
+    <script type="module" src="../src/index.js" defer></script>
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>To do List App</title>
@@ -25,18 +25,36 @@
                 <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
               </svg>
         </div>
-        <container class="p-5 px-0 grid grid-rows-1">
+        <container class="p-5 px-0 grid grid-rows-1 overflow-hidden">
             <div class="h-fit" id="element-container">
                 <!-- To do element -->
-                <!-- <div id="element" class="">
-                    <input type="checkbox" id="to-do" name="to-do" class="w-5 cursor-pointer">
-                    <div class="flex flex-col mx-auto text-lg items-center">
-                        <label for="to-do" class="Title">Title</label>
-                        <div class="">Details</div>
+                
+                <!-- <div class="Element flex flex-row">
+
+                    <div class="Edit-button flex flex-col text-center">
+                        <div class="Delete-button h-1/2 flex justify-center align-center items-center cursor-pointer"> <p>Delete</p> </div>
+                        <div class="Check h-1/2">
+                            
+                            <input type="checkbox" class="h-full w-full cursor-pointer">
+                            
+                        </div>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="" id="delete-button" class="delete-trigger w-8 h-8 cursor-pointer my-auto">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
-                      </svg>     
+
+                    <div id="element" class="shadow-lg">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="Arrow w-10 h-10 my-auto cursor-pointer">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                        
+                        <div class="Content z-0 ">
+                            
+                            <div class="p-5 flex flex-col mx-auto text-lg items-center">
+                                <label for="to-do" class="Title">Title</label>
+                                <div class="">Details</div>
+                            </div>
+                        </div>
+                        
+                    </div> 
                 </div> -->
             </div>
         </container>

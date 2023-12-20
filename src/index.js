@@ -1,3 +1,5 @@
+import { addElement, elements, saveToLocalStorage, loadElements} from './localStorage.js';
+
 const container = document.querySelector('container');
 const addButton = document.querySelector('#add-button');
 const deleteButton = document.querySelectorAll('#delete-button');
@@ -12,6 +14,11 @@ const submitButton = document.querySelector('#submit');
 const toDo = document.querySelector('#toDo');
 const details = document.querySelector('#details');
 
+const listElement = {
+    title: toDo.value,
+    details: details.value
+};
+
 modalTriggers.forEach(trigger => {
   trigger.addEventListener('click', () => {
     modal.classList.toggle('active');
@@ -24,6 +31,8 @@ deleteTriggers.forEach(trigger => {
     });
 });
 
+// Edit-button affichage
+
 taskForm.addEventListener('submit', function (event) {
     event.preventDefault(); // Empêcher le formulaire de se soumettre normalement
 
@@ -31,35 +40,62 @@ taskForm.addEventListener('submit', function (event) {
     if (toDo.value.trim() !== '') {
         // Créer un nouvel élément div
         var newElement = document.createElement('div');
-        newElement.id = 'element';
-        newElement.className = '';
+        newElement.classList = 'Element flex flex-row';
 
         // Ajouter le contenu HTML à l'élément
         newElement.innerHTML = `
-            <input type="checkbox" id="to-do" name="to-do" class="w-5 cursor-pointer">
-            <div class="flex flex-col mx-auto text-lg items-center">
-                <label for="to-do" class="Title">${toDo.value}</label>
-                <div>${details.value}</div>
+
+        <div class="Edit-button flex flex-col text-center">
+            <div class="Delete-button h-1/2 flex justify-center align-center items-center cursor-pointer"> <p>Delete</p> </div>
+            <div class="Check h-1/2">
+                
+                <input type="checkbox" class="h-full w-full cursor-pointer">
+                <label></label>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="" id="delete-button" class="delete-trigger w-8 h-8 cursor-pointer my-auto">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+        </div>
+
+        <div id="element" class="shadow-lg">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="Arrow w-10 h-10 my-auto cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
+            
+            <div class="Content z-0 ">
+                
+                <div class="p-5 flex flex-col mx-auto text-lg items-center">
+                    <label for="to-do" class="Title">${toDo.value}</label>
+                    <div class="">${details.value}</div>
+                </div>
+            </div>
+            
+        </div> 
         `;
 
         // Ajouter le nouvel élément à la page
         elementContainer.appendChild(newElement);
         modal.classList.toggle('active');
+
+        // Enregistrer dans le stockage local
+        
+
+        addElement(listElement);
+
         // Effacer les champs de saisie
         toDo.value = '';
         details.value = '';
 
         // Ajouter un gestionnaire d'événements pour le bouton de suppression
 
-        const deleteButton = newElement.querySelector('#delete-button');
-        deleteButton.addEventListener('click', function () {
-            deleteContainer.classList.toggle('active');
-        });
         
+        const arrow = document.querySelector('.Arrow');
+        const Element = document.querySelector('#element');
+
+        arrow.addEventListener('click', function () {
+            Element.classList.toggle('active');
+        });
     }
+
+        
 });
 
+loadElements();
