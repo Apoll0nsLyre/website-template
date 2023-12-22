@@ -14,9 +14,14 @@ const submitButton = document.querySelector('#submit');
 const toDo = document.querySelector('#toDo');
 const details = document.querySelector('#details');
 
+// faire la fonctionnalité qui sauvegarde le "checked" dans le local storage
+
+// régler le problème de la touche arrow sur tous les éléments en même temps
+
+
 const listElement = {
     title: toDo.value,
-    details: details.value
+    details: details.value,
 };
 
 modalTriggers.forEach(trigger => {
@@ -31,6 +36,10 @@ deleteTriggers.forEach(trigger => {
     });
 });
 
+// régler le problème de la touche arrow sur tous les éléments en même temps
+
+
+
 // Edit-button affichage
 
 taskForm.addEventListener('submit', function (event) {
@@ -39,6 +48,7 @@ taskForm.addEventListener('submit', function (event) {
     // Vérifier si le champ de saisie principal n'est pas vide
     if (toDo.value.trim() !== '') {
         // Créer un nouvel élément div
+        const Checkbox = document.querySelector('.Check');
         var newElement = document.createElement('div');
         newElement.classList = 'Element flex flex-row';
 
@@ -54,7 +64,7 @@ taskForm.addEventListener('submit', function (event) {
             </div>
         </div>
 
-        <div id="element" class="shadow-lg">
+        <div id="element" class="element shadow-lg">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="Arrow w-10 h-10 my-auto cursor-pointer">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -70,14 +80,26 @@ taskForm.addEventListener('submit', function (event) {
             
         </div> 
         `;
-
+        
         // Ajouter le nouvel élément à la page
         elementContainer.appendChild(newElement);
         modal.classList.toggle('active');
 
-        // Enregistrer dans le stockage local
+        
+        // ajouter le gestionnaire d'événement pour chaque bouton de flèche
         
 
+        const arrows = document.querySelectorAll('.Arrow');
+        const elements = document.querySelectorAll('.element');
+
+        arrows.forEach((arrow, i) => {
+            arrow.addEventListener('click', () => {
+                elements[i].classList.toggle('active');
+            });
+        });
+
+
+        // Enregistrer dans le stockage local
         addElement(listElement);
 
         // Effacer les champs de saisie
@@ -87,12 +109,6 @@ taskForm.addEventListener('submit', function (event) {
         // Ajouter un gestionnaire d'événements pour le bouton de suppression
 
         
-        const arrow = document.querySelector('.Arrow');
-        const Element = document.querySelector('#element');
-
-        arrow.addEventListener('click', function () {
-            Element.classList.toggle('active');
-        });
     }
 
         

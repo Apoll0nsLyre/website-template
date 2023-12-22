@@ -31,7 +31,7 @@ function loadElements() {
                     <label></label>
                 </div>
             </div>
-            <div id="element" class="shadow-lg">
+            <div id="element" class="element shadow-lg">
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="Arrow w-10 h-10 my-auto cursor-pointer">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -47,13 +47,17 @@ function loadElements() {
                 
             </div>
         `;
+
+
         elementContainer.appendChild(newElement);
 
-        const arrow = document.querySelector('.Arrow');
-        const Element = document.querySelector('#element');
+        const arrows = document.querySelectorAll('.Arrow');
+        const elements = document.querySelectorAll('#element');
 
-        arrow.addEventListener('click', function () {
-            Element.classList.toggle('active');
+        arrows.forEach((arrow, i) => {
+            arrow.addEventListener('click', () => {
+                elements[i].classList.toggle('active');
+                });
         });
     };
 }
