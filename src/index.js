@@ -36,6 +36,16 @@ deleteTriggers.forEach(trigger => {
     });
 });
 
+function arrowEvent() {
+    const arrows = document.querySelectorAll('.Arrow');
+    const elements = document.querySelectorAll('.element');
+
+    arrows.forEach((arrow, i) => {
+        arrow.addEventListener('click', () => {
+            elements[i].classList.toggle('active');
+        });
+    });
+};
 // régler le problème de la touche arrow sur tous les éléments en même temps
 
 
@@ -115,3 +125,4 @@ taskForm.addEventListener('submit', function (event) {
 });
 
 loadElements();
+arrowEvent();

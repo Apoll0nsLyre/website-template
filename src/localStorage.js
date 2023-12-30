@@ -48,17 +48,20 @@ function loadElements() {
             </div>
         `;
 
-
         elementContainer.appendChild(newElement);
 
-        const arrows = document.querySelectorAll('.Arrow');
-        const elements = document.querySelectorAll('#element');
-
-        arrows.forEach((arrow, i) => {
-            arrow.addEventListener('click', () => {
-                elements[i].classList.toggle('active');
-                });
-        });
+        // arrows.forEach((arrow, index) => {
+        //     const element = elements[index];
+        //     arrow.addEventListener('click', () => {
+        //         if (element.classList.contains('active')) {
+        //             element.classList.remove('active');
+        //         }
+        //         else {
+        //             element.classList.add('active');
+        //         }
+        //     });
+        // }
+        // );
     };
 }
 
