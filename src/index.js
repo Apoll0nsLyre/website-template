@@ -74,7 +74,7 @@ taskForm.addEventListener('submit', function (event) {
             </div>
         </div>
 
-        <div id="element" class="element shadow-lg">
+        <div id="element" class="element">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="Arrow w-10 h-10 my-auto cursor-pointer">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
